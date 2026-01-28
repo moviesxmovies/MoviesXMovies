@@ -1,16 +1,55 @@
-## Hi there 👋
+# MoviesXMovies
 
-<!--
-**moviesxmovies/MoviesXMovies** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+## Data Structure
+Movie
+- name
+- year
+- sinopsis
+- cover
+- director (Person)
+- ratings (Rating)
+- awards (Award)
+- genres (Genre)
+- casting (Person)
+- platforms (Platform)
 
-Here are some ideas to get you started:
+Genre 
+- name
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+Person
+- name
+
+Award
+- date
+- name
+
+Rating
+- rating
+- date
+
+Saga
+- name
+- movies (Movie)
+
+User
+- followingActor (Person)
+- followingDirector (Person)
+- followingSaga (Saga)
+- followers
+- following
+- movieList (Movie)
+
+Review
+- movie (Movie)
+- user (User)
+- isPositive
+- content
+- date
+
+Platform
+- url
+- name
+
+## User Manual
+When registered, you can search for your favourite movies and calificate them so we can know what are your movies preferences.
+After that, movies will display on your screen as a Tinder swipping 
