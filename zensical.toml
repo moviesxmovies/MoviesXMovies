@@ -27,6 +27,9 @@ nav = [
 
 ]
 
+extra_javascript = ["assets/javascript/mermaid.mjs"]
+
+
 [project.theme]
 favicon = "assets/img/favicon.png"
 language = "es"

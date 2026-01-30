@@ -53,3 +53,9 @@ Platform
 ## User Manual
 When registered, you can search for your favourite movies and calificate them so we can know what are your movies preferences.
 After that, movies will display on your screen as a Tinder swipping 
+
+## Diagrams
+### Neo4j Database
+![Neo4j Database](assets/img/neo4j-database.svg)
+
+### Sql Database
