@@ -1,18 +1,26 @@
 services:
   db:
-    image: postgres:15
+    image: postgres:15-alpine
+    container_name: movies_db
+    restart: always
+    env_file:
+      - .env
     environment:
-      - POSTGRES_DB=movies_db
-      - POSTGRES_USER=user
-      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U user -d movies_db"]
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_NAME}"]
       interval: 5s
       timeout: 5s
       retries: 5
 
   api:
     image: moviesxmovies/backend:latest
+    container_name: movies_api
+    restart: always
     env_file:
       - .env
     ports:
@@ -20,3 +28,9 @@ services:
     depends_on:
       db:
         condition: service_healthy
+    volumes:
+      - ./static:/app/staticfiles
+      - ./media:/app/media
+
+volumes:
+  postgres_data:
