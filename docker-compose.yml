@@ -1,0 +1,22 @@
+services:
+  db:
+    image: postgres:15
+    environment:
+      - POSTGRES_DB=movies_db
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U user -d movies_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  api:
+    build: .
+    env_file:
+      - .env
+    ports:
+      - "7996:7996"
+    depends_on:
+      db:
+        condition: service_healthy
