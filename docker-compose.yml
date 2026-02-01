@@ -32,6 +32,14 @@ services:
     volumes:
       - ./static:/app/staticfiles
       - ./media:/app/media
+      
+  frontend:
+    image: moviesxmovies/frontend:latest
+    container_name: movies_frontend
+    restart: always
+    pull_policy: always
+    volumes:
+      - /var/www/moviesxmovies/frontend:/var/www/frontend
 
 volumes:
   postgres_data:
