@@ -4,6 +4,9 @@ on:
     branches:
       - master
       - main
+    paths:
+      - 'zensical.toml'
+      - 'docs/**'
 permissions:
   contents: read
   pages: write
