@@ -1,6 +1,6 @@
 [project]
 
-site_name = "Lumino Docs"
+site_name = "MoviesXMovies"
 
 site_description = "All about MoviesXMovies"
 
@@ -31,7 +31,7 @@ extra_javascript = ["assets/javascript/mermaid.mjs"]
 
 
 [project.theme]
-favicon = "assets/img/favicon.png"
+favicon = "assets/img/favicon.svg"
 language = "es"
 features = [
   "announce.dismiss",
@@ -77,7 +77,7 @@ text = "Inter"
 code = "Jetbrains Mono"
 
 [project.theme.icon]
-logo = "lucide/cat"
+logo = "assets/img/favicon.svg"
 repo = "lucide/github"
 
 # [project.extra.analytics]
