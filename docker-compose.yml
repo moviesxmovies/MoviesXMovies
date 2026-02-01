@@ -39,7 +39,7 @@ services:
     restart: always
     pull_policy: always
     volumes:
-      - /var/www/moviesxmovies/frontend:/var/www/frontend
+      - /var/www/moviesxmovies/frontend2:/app
 
 volumes:
   postgres_data:
