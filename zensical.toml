@@ -77,7 +77,7 @@ text = "Inter"
 code = "Jetbrains Mono"
 
 [project.theme.icon]
-logo = "assets/img/favicon.svg"
+logo = "lucide/sun"
 repo = "lucide/github"
 
 # [project.extra.analytics]
