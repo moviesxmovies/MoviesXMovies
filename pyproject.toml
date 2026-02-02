@@ -3,5 +3,6 @@ name = "moviesxmovies-docs"
 version = "0.1.0"
 requires-python = ">=3.14"
 dependencies = [
+    "mkdocstrings-python>=2.0.1",
     "zensical>=0.0.20",
 ]

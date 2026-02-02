@@ -100,3 +100,12 @@ repo = "lucide/github"
 # note = """
 #   ¡Gracias por tu comentario! Ayúdanos a mejorar esta página utilizando nuestro <a href="#" target="_blank" rel="noopener">formulario de comentarios</a>.
 # """
+
+[project.plugins.mkdocstrings.handlers.python]
+inventories = ["https://docs.python.org/3/objects.inv"]
+paths = ["src_external"]
+
+[project.plugins.mkdocstrings.handlers.python.options]
+docstring_style = "google"
+inherited_members = true
+show_source = false
