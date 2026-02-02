@@ -5,6 +5,14 @@ title: Code Documentation
 
 ## Models
 
-::: persons.models.Person
+::: shared.models.Timestamps
 
 ::: persons.models.Person
+
+::: platforms.models.Platform
+
+::: awards.models.Award
+
+::: genres.models.Genre
+
+::: users.models.User
