@@ -100,11 +100,13 @@ code = "Jetbrains Mono"
 # """
 
 [project.plugins.mkdocstrings.handlers.python]
-inventories = ["https://docs.python.org/3/objects.inv"]
+inventories = [
+  "https://docs.python.org/3/objects.inv",
+  "https://docs.djangoproject.com/en/stable/objects.inv",
+]
 paths = ["src_backend"]
 
 [project.plugins.mkdocstrings.handlers.python.options]
 docstring_style = "google"
 inherited_members = true
 show_source = true
-
