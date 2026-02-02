@@ -111,3 +111,4 @@ docstring_style = "google"
 inherited_members = true
 show_source = true
 show_root_heading = true
+show_bases = true
