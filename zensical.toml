@@ -111,4 +111,3 @@ docstring_style = "google"
 inherited_members = true
 show_source = true
 show_root_heading = true
-import_id_as_label = true
