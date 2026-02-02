@@ -28,7 +28,7 @@ jobs:
       - name: Checkout Source Code
         uses: actions/checkout@v4
         with:
-          repository: moxviesxmovies/moxviesxmoviesBackend
+          repository: moviesxmovies/moviesxmoviesBackend
           path: src_external  
       - uses: actions/upload-pages-artifact@v4
         with:
