@@ -4,4 +4,4 @@ title: Test
 ---
 
 
-<!-- ::: persons.models.Person -->
+::: persons.models.Person
