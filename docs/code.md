@@ -2,7 +2,6 @@
 icon: lucide/code
 title: Code Documentation
 ---
-
 # Code Documentation
 
 This section provides a detailed technical reference for the backend data models. All models inherit from our base utility classes to ensure data consistency.
@@ -58,7 +57,7 @@ graph TD
 
 Common utility classes and Mixins used across all application modules.
 
-### Models
+### Shared Models
 
 ::: shared.models.Timestamps
     options:
@@ -71,7 +70,7 @@ Common utility classes and Mixins used across all application modules.
 
 Management of industry professionals, including actors, actresses, and directors.
 
-### Models
+### Persons Models
 
 ::: persons.models.Person
     options:
@@ -84,7 +83,7 @@ Management of industry professionals, including actors, actresses, and directors
 
 Streaming services and distribution channels documentation.
 
-### Models
+### Platforms Models
 
 ::: platforms.models.Platform
     options:
@@ -97,7 +96,7 @@ Streaming services and distribution channels documentation.
 
 Industry recognitions, festivals, and cinematic awards.
 
-### Models
+### Awards Models
 
 ::: awards.models.Award
     options:
@@ -110,7 +109,7 @@ Industry recognitions, festivals, and cinematic awards.
 
 Film categories and genre classifications.
 
-### Models
+### Genres Models
 
 ::: genres.models.Genre
     options:
@@ -123,7 +122,7 @@ Film categories and genre classifications.
 
 Core user management, authentication, and profile data.
 
-### Models
+### Users Models
 
 ::: users.models.User
     options:

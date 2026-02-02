@@ -8,7 +8,7 @@ site_author = "Ruben y Jonay"
 
 repo_url = "https://github.com/moviesXmovies/moviesXmovies"
 
-site_url = "https://moviesxmovies.github.io/MoviesXMovies/"
+site_url = "https://moviesxmovies.github.io/MoviesXMovies"
 
 repo_name = "Docs"
 
@@ -29,6 +29,8 @@ nav = [
 ]
 
 extra_javascript = ["assets/javascript/mermaid.mjs"]
+extra_css = ["assets/css/extra.css"]
+
 
 [project.theme]
 favicon = "assets/img/favicon.svg"
@@ -109,5 +111,5 @@ paths = ["src_backend"]
 [project.plugins.mkdocstrings.handlers.python.options]
 docstring_style = "google"
 inherited_members = true
-show_source = true
-show_root_heading = true
+show_source = false ## Disable for now because of mkdocstrings issue
+line_length = 80
