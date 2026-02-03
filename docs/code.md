@@ -57,9 +57,9 @@ graph TD
 
 Common utility classes and Mixins used across all application modules.
 
-### Shared Models
+### Models
 
-::: shared.models.Timestamps
+::: shared.models.BaseModel
     options:
       heading_level: 4
       show_root_heading: true
@@ -70,7 +70,7 @@ Common utility classes and Mixins used across all application modules.
 
 Management of industry professionals, including actors, actresses, and directors.
 
-### Persons Models
+### Models
 
 ::: persons.models.Person
     options:
@@ -83,7 +83,7 @@ Management of industry professionals, including actors, actresses, and directors
 
 Streaming services and distribution channels documentation.
 
-### Platforms Models
+### Models
 
 ::: platforms.models.Platform
     options:
@@ -96,7 +96,7 @@ Streaming services and distribution channels documentation.
 
 Industry recognitions, festivals, and cinematic awards.
 
-### Awards Models
+### Models
 
 ::: awards.models.Award
     options:
@@ -109,7 +109,7 @@ Industry recognitions, festivals, and cinematic awards.
 
 Film categories and genre classifications.
 
-### Genres Models
+### Models
 
 ::: genres.models.Genre
     options:
@@ -122,9 +122,30 @@ Film categories and genre classifications.
 
 Core user management, authentication, and profile data.
 
-### Users Models
+### Models
 
 ::: users.models.User
     options:
       heading_level: 4
       show_root_heading: true
+
+## Movies
+
+The base of the application, movies connected with almost everything
+
+### Models
+
+::: movies.models.Movie
+    options:
+      heading_level: 4
+      show_root_heading: true
+
+## Movie List
+
+A list created by an user or administrator, with a privacy 
+
+::: movielists.models.MovieList
+    options:
+      heading_level: 4
+      show_root_heading: true
+
