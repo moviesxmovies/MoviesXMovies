@@ -1,61 +1,9 @@
 # MoviesXMovies
 
-## Data Structure
-Movie
-- name
-- year
-- sinopsis
-- cover
-- director (Person)
-- ratings (Rating)
-- awards (Award)
-- genres (Genre)
-- casting (Person)
-- platforms (Platform)
+<a href="https://moviesxmovies.github.io/MoviesXMovies/" align="center">
+    <img src="docs/assets/img/og-image.webp">
+</a>
 
-Genre 
-- name
+- ## [BackEnd](../MoviesXMoviesBackend/)
 
-Person
-- name
-
-Award
-- date
-- name
-
-Rating
-- rating
-- date
-
-Saga
-- name
-- movies (Movie)
-
-User
-- followingActor (Person)
-- followingDirector (Person)
-- followingSaga (Saga)
-- followers
-- following
-- movieList (Movie)
-
-Review
-- movie (Movie)
-- user (User)
-- isPositive
-- content
-- date
-
-Platform
-- url
-- name
-
-## User Manual
-When registered, you can search for your favourite movies and calificate them so we can know what are your movies preferences.
-After that, movies will display on your screen as a Tinder swipping 
-
-## Diagrams
-### Neo4j Database
-![Neo4j Database](assets/img/neo4j-database.svg)
-
-### Sql Database
+- ## [FrontEnd](../MoviesXMoviesFrontend/)
