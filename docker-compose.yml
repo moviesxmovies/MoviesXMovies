@@ -48,13 +48,13 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: /home/serverkb/MoviesXMovies/static
+      device: /var/www/moviesxmovies/static
   media_data:
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /home/serverkb/MoviesXMovies/media
+      device: /var/www/moviesxmovies/media
   frontend_data:
     driver: local
     driver_opts:
