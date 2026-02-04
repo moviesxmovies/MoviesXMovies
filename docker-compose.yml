@@ -1,0 +1,63 @@
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: movies_db
+    restart: always
+    env_file:
+      - .env
+    environment:
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_NAME}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  api:
+    image: moviesxmovies/backend:latest
+    container_name: movies_api
+    restart: always
+    pull_policy: always
+    env_file:
+      - .env
+    ports:
+      - "7996:7996"
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - static_data:/app/staticfiles
+      - media_data:/app/media
+      
+  web:
+    image: moviesxmovies/frontend:latest
+    container_name: movies_frontend
+    restart: always
+    pull_policy: always
+    volumes:
+      - frontend_data:/app
+
+volumes:
+  postgres_data:
+  static_data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/serverkb/MoviesXMovies/static
+  media_data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/serverkb/MoviesXMovies/media
+  frontend_data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /var/www/moviesxmovies/app
