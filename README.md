@@ -4,6 +4,6 @@
     <img src="docs/assets/img/og-image.webp">
 </a>
 
-- ## [BackEnd](../MoviesXMoviesBackend/)
+- ## [BackEnd](https://github.com/moviesxmovies/MoviesXMoviesBackend)
 
-- ## [FrontEnd](../MoviesXMoviesFrontend/)
+- ## [FrontEnd](https://github.com/moviesxmovies/MoviesXMoviesFrontend)
