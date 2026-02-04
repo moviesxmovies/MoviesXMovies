@@ -1,6 +1,6 @@
 [project]
 
-site_name = "Lumino Docs"
+site_name = "MoviesXMovies"
 
 site_description = "All about MoviesXMovies"
 
@@ -8,7 +8,7 @@ site_author = "Ruben y Jonay"
 
 repo_url = "https://github.com/moviesXmovies/moviesXmovies"
 
-site_url = "https://moviesXmovies.github.io/moviesXmovies/"
+site_url = "https://moviesxmovies.github.io/MoviesXMovies"
 
 repo_name = "Docs"
 
@@ -18,21 +18,24 @@ Copyright &copy; 2026 Ruben y Jonay
 
 nav = [
   { "Home" = "index.md", "icon" = "lucide/home" },
-  { "Diagrams" = "diagrams.md", "icon"="lucide/home"},
-  { "Workflows" = "workflows.md", "icon"="lucide/workflow"},
-  { "Deployment" = "deployment.md", "icon"="lucide/cloud-upload"},
-  { "User Manual" = "user_manual.md", "icon"="lucide/user"},
-  { "Installation" = "installation.md", "icon"="lucide/hard-drive-download"},
+  { "Diagrams" = "diagrams.md", "icon" = "lucide/home" },
+  { "Workflows" = "workflows.md", "icon" = "lucide/workflow" },
+  { "Deployment" = "deployment.md", "icon" = "lucide/cloud-upload" },
+  { "User Manual" = "user_manual.md", "icon" = "lucide/user" },
+  { "Installation" = "installation.md", "icon" = "lucide/hard-drive-download" },
+  { "Code Documentation" = "code.md", "icon" = "lucide/code" },
 
 
 ]
 
 extra_javascript = ["assets/javascript/mermaid.mjs"]
+extra_css = ["assets/css/extra.css"]
 
 
 [project.theme]
-favicon = "assets/img/favicon.png"
+favicon = "assets/img/favicon.svg"
 language = "es"
+logo = "assets/img/favicon.svg"
 features = [
   "announce.dismiss",
   "content.code.annotate",
@@ -76,9 +79,6 @@ accent = "deep purple"
 text = "Inter"
 code = "Jetbrains Mono"
 
-[project.theme.icon]
-logo = "lucide/cat"
-repo = "lucide/github"
 
 # [project.extra.analytics]
 # provider = "google"
@@ -100,3 +100,16 @@ repo = "lucide/github"
 # note = """
 #   ¡Gracias por tu comentario! Ayúdanos a mejorar esta página utilizando nuestro <a href="#" target="_blank" rel="noopener">formulario de comentarios</a>.
 # """
+
+[project.plugins.mkdocstrings.handlers.python]
+inventories = [
+  "https://docs.python.org/3/objects.inv",
+  "https://docs.djangoproject.com/en/stable/objects.inv",
+]
+paths = ["src_backend"]
+
+[project.plugins.mkdocstrings.handlers.python.options]
+docstring_style = "google"
+inherited_members = true
+show_source = false ## Disable for now because of mkdocstrings issue
+line_length = 80

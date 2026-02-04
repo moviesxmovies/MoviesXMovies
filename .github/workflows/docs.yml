@@ -4,6 +4,12 @@ on:
     branches:
       - master
       - main
+    paths:
+      - 'zensical.toml'
+      - 'docs/**'
+      - '.github/workflows/docs.yml'
+  repository_dispatch:
+    types: [backend_updated]
 permissions:
   contents: read
   pages: write
@@ -17,11 +23,18 @@ jobs:
     steps:
       - uses: actions/configure-pages@v5
       - uses: actions/checkout@v5
-      - uses: actions/setup-python@v5
+      - name: Checkout Source Code
+        uses: actions/checkout@v4
         with:
-          python-version: 3.x
-      - run: pip install zensical
-      - run: zensical build --clean
+          repository: moviesxmovies/moviesxmoviesBackend
+          path: src_backend
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+  
+      - name: UV synchronize
+        run: uv sync
+
+      - run: uv run zensical build --clean
       - uses: actions/upload-pages-artifact@v4
         with:
           path: site

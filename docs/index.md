@@ -64,4 +64,11 @@ title: MoviesXMovies - Docs
       Learn how to install Movies X Movies
 
       [View Installation](installation.md)
+
+-    :lucide-code: **Code Documentation**  
+  
+     ---
+      Show views, models and everything about the coide
+
+      [View Code](code.md)
 </div>
