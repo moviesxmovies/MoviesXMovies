@@ -6,7 +6,13 @@ title: Code Documentation
 
 This section provides a detailed technical reference for the backend data models. All models inherit from our base utility classes to ensure data consistency.
 
+## API Manual
+
+This page contains all necesary documentation about API endpoints:
+[API Documentation](https://moviesxmovies.jonaykb.com/api/docs/)
+
 ## Architecture Overview
+
 The following diagram illustrates the relationship between our base models and the domain-specific entities.
 
 ```mermaid
