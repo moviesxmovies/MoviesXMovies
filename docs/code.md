@@ -62,10 +62,10 @@ graph TD
 ## Main
 
 ### Urls
-::: main.urls
+<!-- ::: main.urls
     options:
         heading_level: 4
-        members: true
+        members: true -->
 
 ## Shared
 
@@ -80,10 +80,10 @@ Common utility classes and Mixins used across all application modules.
 
 ### Views
 
-::: shared.views
+<!-- ::: shared.views
     options:
       heading_level: 4
-      members: true
+      members: true -->
 
 ---
 
@@ -100,10 +100,10 @@ Management of industry professionals, including actors, actresses, and directors
 
 ### Views
 
-::: persons.views
+<!-- ::: persons.views
     options:
       heading_level: 4
-      members: true
+      members: true -->
 
 ---
 
@@ -120,10 +120,10 @@ Streaming services and distribution channels documentation.
 
 ### Views
 
-::: platforms.views
+<!-- ::: platforms.views
     options:
       heading_level: 4
-      members: true
+      members: true -->
 
 ---
 
@@ -140,10 +140,10 @@ Industry recognitions, festivals, and cinematic awards.
 
 ### Views
 
-::: awards.views
+<!-- ::: awards.views
     options:
       heading_level: 4
-      members: true
+      members: true -->
 ---
 
 ## Genres
@@ -159,9 +159,9 @@ Film categories and genre classifications.
 
 ### Views
 
-::: genres.views
+<!-- ::: genres.views
     options:
-          heading_level: 4
+          heading_level: 4 -->
 ---
 
 ## Users
@@ -176,17 +176,17 @@ Core user management, authentication, and profile data.
       show_root_heading: true
 ### Views
 
-::: users.views
+<!-- ::: users.views
     options:
       heading_level: 4
-      members: true
+      members: true -->
 
 ### Urls
 
-::: users.urls
+<!-- ::: users.urls
     options:
       heading_level: 4
-      members: true
+      members: true -->
 
 ## Movies
 
@@ -201,10 +201,10 @@ The base of the application, movies connected with almost everything
 
 ### Views
 
-::: movies.views
+<!-- ::: movies.views
     options:
       heading_level: 4
-      members: true
+      members: true -->
 
 ## Movie List
 
@@ -219,7 +219,7 @@ A list created by an user or administrator, with a privacy
 
 ### Views
 
-::: movielists.views
+<!-- ::: movielists.views
     options:
       heading_level: 4
-      members: true
+      members: true -->

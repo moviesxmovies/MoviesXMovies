@@ -5,6 +5,78 @@ title: Worflows
 
 ## Work Workflow
 
+This document outlines the sacred path of our code, from the initial seed of an idea to the continuous evolution of the product.
+
+---
+
+## The Three Pillars (Architecture)
+To maintain mental clarity and technical focus, we separate our world into three distinct realms.
+
+| Realm          | Essence          | Responsibility                                                |
+| :------------- | :--------------- | :------------------------------------------------------------ |
+| 📄 **Docs**     | *The Root*       | Architecture, requirements, and the "Source of Truth."        |
+| ⚙️ **Backend**  | *The Foundation* | Logic, data integrity, and the hidden strength of the system. |
+| 🎨 **Frontend** | *The Flower*     | User experience, interface beauty, and interaction.           |
+
+---
+
+## The Flow of Purity
+Every feature follows a disciplined journey. We do not rush; we refine.
+
+### Git Lifecycle
+<div align="center">
+
+```mermaid
+---
+config:
+  layout: elk
+  theme: base
+  themeVariables:
+    git0: "#cd48cb"
+    gitBranchLabel0: "#2c3e50"
+    git1: "#27ae60"
+    gitBranchLabel1: "#27ae60"
+    commitLabelColor: "#ffffff"
+    commitLabelFontSize: "12px"
+    tagLabelFontSize: "10px"
+    sampleInterval: 1 
+---
+gitGraph
+    commit id: "Initial" tag: "v1.0"
+    branch feature-task
+    checkout feature-task
+    commit id: "Issue-Linked"
+    commit id: "Development"
+    commit id: "Refinement"
+    checkout main
+    merge feature-task id: "PR-Sonar-Passed" tag: "Clean"
+    commit id: "Evolution"
+```
+</div>
+
+---
+
+## The Developer's Creed
+
+### Issue & Assignment
+No code shall be written without a purpose. Every task begins as an **Issue**, providing a name and a face (assignee) to the intent.
+
+### Branching & PR
+Branches are private gardens. Work happens in isolation to ensure the `main` branch remains a sanctuary of stability.
+
+!!! warning "The Guardian of Quality (SonarQube)"
+    A Pull Request is a request for harmony. If the **SonarQube Quality Gate** fails (detecting bugs, vulnerabilities, or code smells), the gate remains closed. Only purified code may enter the main branch.
+
+### The Infinite Loop
+> "Completion is a milestone, not a destination."
+
+We embrace the truth that a product is never "finished." We iterate, we polish, and we improve. Each merge is simply a new beginning for the next refinement.
+
+
+**Status:** *In Continuous Evolution* 🔄
+
+---
+
 ## Github Workflows
 
 ### Commons Workflows
@@ -64,11 +136,32 @@ jobs:
    
 6. Adds the **release** to the **repository**
 
-
-
 ### Backend Workflows
 
+Worflows executed on the backend (1)
+{.annotate}
+
+1. Also executes the [Common Workflows](#commons-workflows)
+
+#### Sonarqube
+
+#### Build
+
+#### Deploy
+
+
 ### Frontend Workflows
+
+Worflows executed on the frontend (1)
+{.annotate}
+
+1. Also executes the [Common Workflows](#commons-workflows)
+
+#### Sonarqube
+
+#### Build
+
+#### Deploy
 
 ### Docs Workflows
 
