@@ -59,6 +59,14 @@ graph TD
 
 ---
 
+## Main
+
+### Urls
+::: main.urls
+    options:
+        heading_level: 4
+        members: true
+
 ## Shared
 
 Common utility classes and Mixins used across all application modules.
@@ -69,6 +77,13 @@ Common utility classes and Mixins used across all application modules.
     options:
       heading_level: 4
       show_root_heading: true
+
+### Views
+
+::: shared.views
+    options:
+      heading_level: 4
+      members: true
 
 ---
 
@@ -83,6 +98,13 @@ Management of industry professionals, including actors, actresses, and directors
       heading_level: 4
       show_root_heading: true
 
+### Views
+
+::: persons.views
+    options:
+      heading_level: 4
+      members: true
+
 ---
 
 ## Platforms
@@ -95,6 +117,13 @@ Streaming services and distribution channels documentation.
     options:
       heading_level: 4
       show_root_heading: true
+
+### Views
+
+::: platforms.views
+    options:
+      heading_level: 4
+      members: true
 
 ---
 
@@ -109,6 +138,12 @@ Industry recognitions, festivals, and cinematic awards.
       heading_level: 4
       show_root_heading: true
 
+### Views
+
+::: awards.views
+    options:
+      heading_level: 4
+      members: true
 ---
 
 ## Genres
@@ -122,6 +157,11 @@ Film categories and genre classifications.
       heading_level: 4
       show_root_heading: true
 
+### Views
+
+::: genres.views
+    options:
+          heading_level: 4
 ---
 
 ## Users
@@ -134,6 +174,19 @@ Core user management, authentication, and profile data.
     options:
       heading_level: 4
       show_root_heading: true
+### Views
+
+::: users.views
+    options:
+      heading_level: 4
+      members: true
+
+### Urls
+
+::: users.urls
+    options:
+      heading_level: 4
+      members: true
 
 ## Movies
 
@@ -146,12 +199,27 @@ The base of the application, movies connected with almost everything
       heading_level: 4
       show_root_heading: true
 
+### Views
+
+::: movies.views
+    options:
+      heading_level: 4
+      members: true
+
 ## Movie List
 
 A list created by an user or administrator, with a privacy 
+
+### Models
 
 ::: movielists.models.MovieList
     options:
       heading_level: 4
       show_root_heading: true
 
+### Views
+
+::: movielists.views
+    options:
+      heading_level: 4
+      members: true
