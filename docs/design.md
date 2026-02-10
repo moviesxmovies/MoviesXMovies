@@ -65,6 +65,26 @@ title: Design
 <p style="font-size: 1rem; font-weight: 700">Inter bold</p>
 
 ## Components
+### Review
+<figure markdown="span">
+  ![Review light](assets/img/components/review/review-light.svg){ loading=lazy }
+  <figcaption>Review light</figcaption>
+</figure>
+
+<figure markdown="span">
+  ![Review light](assets/img/components/review/review-dark.svg){ loading=lazy }
+  <figcaption>Review dark</figcaption>
+</figure>
+
+<figure markdown="span">
+  ![Review light](assets/img/components/review/review-profile-light.svg){ loading=lazy }
+  <figcaption>Review profile light</figcaption>
+</figure>
+
+<figure markdown="span">
+  ![Review light](assets/img/components/review/review-profile-dark.svg){ loading=lazy }
+  <figcaption>Review profile dark</figcaption>
+</figure>
 
 ## Pages
 
