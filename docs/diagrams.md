@@ -1,10 +1,10 @@
 ---
-icon: lucide/home
+icon: lucide/network
 title: Diagrams
 ---
 
 ## Entity Relationship Diagram
-
+<div align="center">
 ```mermaid
 ---
 config:
@@ -28,9 +28,11 @@ erDiagram
     RATING ||--o{ MOVIE: rates
     REVIEW ||--o{ MOVIE: reviews
 ```
+</div>
 
 ## Class Diagram
 
+<div align="center">
 ```mermaid
 ---
 config:
@@ -115,3 +117,4 @@ erDiagram
         String name
     }
 ```
+</div>

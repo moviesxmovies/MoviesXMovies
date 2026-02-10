@@ -18,7 +18,8 @@ Copyright &copy; 2026 Ruben y Jonay
 
 nav = [
   { "Home" = "index.md", "icon" = "lucide/home" },
-  { "Diagrams" = "diagrams.md", "icon" = "lucide/home" },
+  { "Diagrams" = "diagrams.md", "icon" = "lucide/network" },
+  { "Design" = "design.md", "icon" = "lucide/figma" },
   { "Workflows" = "workflows.md", "icon" = "lucide/workflow" },
   { "Deployment" = "deployment.md", "icon" = "lucide/cloud-upload" },
   { "User Manual" = "user_manual.md", "icon" = "lucide/user" },
