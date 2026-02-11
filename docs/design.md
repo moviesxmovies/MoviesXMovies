@@ -65,26 +65,191 @@ title: Design
 <p style="font-size: 1rem; font-weight: 700">Inter bold</p>
 
 ## Components
+### Button
+=== "Light"
+    <figure markdown="span">
+    ![Button light](assets/img/components/button/button-light.svg){ loading=lazy }
+    <figcaption>Button light</figcaption>
+    </figure>
+
+=== "Dark"
+    <figure markdown="span">
+    ![Button dark](assets/img/components/button/button-dark.svg){ loading=lazy }
+    <figcaption>Button dark</figcaption>
+    </figure>
+
+<br>
+
+=== "Light"
+    <figure markdown="span">
+    ![Button2 light](assets/img/components/button/button2-light.svg){ loading=lazy }
+    <figcaption>Button 2 light</figcaption>
+    </figure>
+
+=== "Dark"
+    <figure markdown="span">
+    ![Button2 dark](assets/img/components/button/button2-dark.svg){ loading=lazy }
+    <figcaption>Button 2 dark</figcaption>
+    </figure>
+
+### Search
+<figure markdown="span">
+![Search](assets/img/components/search.svg){ loading=lazy }
+<figcaption>Search</figcaption>
+</figure>
+
+### Search Fields 
+=== "Light"
+    <figure markdown="span">
+    ![Search fields light](assets/img/components/search-fields-light.svg){ loading=lazy }
+    <figcaption>Search fields light</figcaption>
+    </figure>
+
+=== "Dark"
+    <figure markdown="span">
+    ![Search fields dark](assets/img/components/search-fields-dark.svg){ loading=lazy }
+    <figcaption>Search fields dark</figcaption>
+    </figure>
+
+### Navbar
+=== "Light"
+    <figure markdown="span">
+    ![Navbar light](assets/img/components/navbar-light.svg){ loading=lazy }
+    <figcaption>Navbar light</figcaption>
+    </figure>
+
+=== "Dark"
+    <figure markdown="span">
+    ![Navbar dark](assets/img/components/navbar-dark.svg){ loading=lazy }
+    <figcaption>Navbar dark</figcaption>
+    </figure>
+
+### Stars
+<figure markdown="span">
+![Stars](assets/img/components/stars-dark.svg#only-light){ loading=lazy }
+![Stars](assets/img/components/stars-light.svg#only-dark){ loading=lazy }
+<figcaption>Stars</figcaption>
+</figure>
+
+### Pill
+=== "Light"
+    <figure markdown="span">
+    ![Pill light](assets/img/components/pill/pill-light.svg){ loading=lazy }
+    <figcaption>Pill light</figcaption>
+    </figure>
+
+=== "Dark"
+    <figure markdown="span">
+    ![Pill dark](assets/img/components/pill/pill-dark.svg){ loading=lazy }
+    <figcaption>Pill dark</figcaption>
+    </figure>
+
+<br>
+
+=== "Light"
+    <figure markdown="span">
+    ![Pill2 light](assets/img/components/pill/pill2-light.svg){ loading=lazy }
+    <figcaption>Pill 2 light</figcaption>
+    </figure>
+
+=== "Dark"
+    <figure markdown="span">
+    ![Pill2 dark](assets/img/components/pill/pill2-dark.svg){ loading=lazy }
+    <figcaption>Pill 2 dark</figcaption>
+    </figure>
+
+### Badge
+=== "Light"
+    <figure markdown="span">
+    ![Badge light](assets/img/components/delete-badge-light.svg){ loading=lazy }
+    <figcaption>Badge light</figcaption>
+    </figure>
+
+=== "Dark"
+    <figure markdown="span">
+    ![Badge dark](assets/img/components/delete-badge-dark.svg){ loading=lazy }
+    <figcaption>Badge dark</figcaption>
+    </figure>
+
+### Checkbox
+<figure markdown="span">
+![Checkbox](assets/img/components/checkbox.svg){ loading=lazy }
+<figcaption>Checkbox</figcaption>
+</figure>
+
+### Rating
+=== "Light"
+    <figure markdown="span">
+    ![Rating light](assets/img/components/rating-light.svg){ loading=lazy }
+    <figcaption>Rating light</figcaption>
+    </figure>
+
+=== "Dark"
+    <figure markdown="span">
+    ![Rating dark](assets/img/components/rating-dark.svg){ loading=lazy }
+    <figcaption>Rating dark</figcaption>
+    </figure>
+
 ### Review
+
+=== "Light"
+    <figure markdown="span">
+    ![Review light](assets/img/components/review/review-light.svg){ loading=lazy }
+    <figcaption>Review light</figcaption>
+    </figure>
+
+=== "Dark"
+    <figure markdown="span">
+    ![Review dark](assets/img/components/review/review-dark.svg){ loading=lazy }
+    <figcaption>Review dark</figcaption>
+    </figure>
+
+<br>
+
+=== "Light"
+    <figure markdown="span">
+    ![Review profile light](assets/img/components/review/review-profile-light.svg){ loading=lazy }
+    <figcaption>Review profile light</figcaption>
+    </figure>
+
+=== "Dark"
+    <figure markdown="span">
+    ![Review profile dark](assets/img/components/review/review-profile-dark.svg){ loading=lazy }
+    <figcaption>Review profile dark</figcaption>
+    </figure>
+
+### Movie
+#### Movie cover
 <figure markdown="span">
-  ![Review light](assets/img/components/review/review-light.svg){ loading=lazy }
-  <figcaption>Review light</figcaption>
+![Movie cover](assets/img/components/movie-cover.svg){ loading=lazy }
+<figcaption>Movie cover</figcaption>
 </figure>
 
+#### New Movie
 <figure markdown="span">
-  ![Review light](assets/img/components/review/review-dark.svg){ loading=lazy }
-  <figcaption>Review dark</figcaption>
+![New Movie](assets/img/components/new-movie.svg){ loading=lazy }
+<figcaption>New Movie</figcaption>
 </figure>
 
+### Movie List
 <figure markdown="span">
-  ![Review light](assets/img/components/review/review-profile-light.svg){ loading=lazy }
-  <figcaption>Review profile light</figcaption>
+
+![Movie List](assets/img/components/movie-list.svg){ loading=lazy }
+<figcaption>Movie List</figcaption>
 </figure>
 
-<figure markdown="span">
-  ![Review light](assets/img/components/review/review-profile-dark.svg){ loading=lazy }
-  <figcaption>Review profile dark</figcaption>
-</figure>
+#### Movie List Checkbox
+=== "Light"
+    <figure markdown="span">
+    ![Movie List Checkbox light](assets/img/components/movielist-checkbox-light.svg){ loading=lazy }
+    <figcaption>Movie List Checkbox light</figcaption>
+    </figure>
+
+=== "Dark"
+    <figure markdown="span">
+    ![Movie List Checkbox dark](assets/img/components/movielist-checkbox-dark.svg){ loading=lazy }
+    <figcaption>Movie List Checkbox dark</figcaption>
+    </figure>
 
 ## Pages
 
