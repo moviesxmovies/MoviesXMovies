@@ -2,6 +2,11 @@
 runserver:
     uv run zensical serve
 
+alias cp:=copybackend
+copybackend:
+    rm -rf src_backend
+    cp ../MoviesXMoviesBackend/ ./src_backend/ -r
+
 # Setup the development environment
 setup:
     uv sync
