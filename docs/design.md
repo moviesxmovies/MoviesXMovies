@@ -406,5 +406,100 @@ title: Design
     </figure>
 
 ## Pages
+=== "Light"
+    <figure markdown="span">
+    ![Home light](assets/img/pages/light/home.png){ loading=lazy }
+    <figcaption>Home light</figcaption>
+    </figure>
+
+=== "Dark"
+    <figure markdown="span">
+    ![Home dark](assets/img/pages/dark/home.png){ loading=lazy }
+    <figcaption>Home dark</figcaption>
+    </figure>
+
+<br>
+
+=== "Light"
+    <figure markdown="span">
+    ![Movie Info light](assets/img/pages/light/movie-info.png){ loading=lazy }
+    <figcaption>Movie Info light</figcaption>
+    </figure>
+
+=== "Dark"
+    <figure markdown="span">
+    ![Movie Info dark](assets/img/pages/dark/movie-info.png){ loading=lazy }
+    <figcaption>Movie Info dark</figcaption>
+    </figure>
+
+<br>
+
+=== "Light"
+    <figure markdown="span">
+    ![Movie List light](assets/img/pages/light/movie-list.png){ loading=lazy }
+    <figcaption>Movie List light</figcaption>
+    </figure>
+
+=== "Dark"
+    <figure markdown="span">
+    ![Movie List dark](assets/img/pages/dark/movie-list.png){ loading=lazy }
+    <figcaption>Movie List dark</figcaption>
+    </figure>
+
+<br>
+
+=== "Light"
+    <figure markdown="span">
+    ![Person light](assets/img/pages/light/person.png){ loading=lazy }
+    <figcaption>Person light</figcaption>
+    </figure>
+
+=== "Dark"
+    <figure markdown="span">
+    ![Person dark](assets/img/pages/dark/person.png){ loading=lazy }
+    <figcaption>Person dark</figcaption>
+    </figure>
+
+<br>
+
+=== "Light"
+    <figure markdown="span">
+    ![Profile light](assets/img/pages/light/profile.png){ loading=lazy }
+    <figcaption>Profile light</figcaption>
+    </figure>
+
+=== "Dark"
+    <figure markdown="span">
+    ![Profile dark](assets/img/pages/dark/profile.png){ loading=lazy }
+    <figcaption>Profile dark</figcaption>
+    </figure>
+
+<br>
+
+=== "Light"
+    <figure markdown="span">
+    ![Search Results light](assets/img/pages/light/search-results.png){ loading=lazy }
+    <figcaption>Search Results light</figcaption>
+    </figure>
+
+=== "Dark"
+    <figure markdown="span">
+    ![Search Results dark](assets/img/pages/dark/search-results.png){ loading=lazy }
+    <figcaption>Search Results dark</figcaption>
+    </figure>
+
+<br>
+
+=== "Light"
+    <figure markdown="span">
+    ![Select Create List light](assets/img/pages/light/select-create-list.png){ loading=lazy }
+    <figcaption>Select Create List light</figcaption>
+    </figure>
+
+=== "Dark"
+    <figure markdown="span">
+    ![Select Create List dark](assets/img/pages/dark/select-create-list.png){ loading=lazy }
+    <figcaption>Select Create List dark</figcaption>
+    </figure>
 
 ## Prototype
