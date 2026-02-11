@@ -218,6 +218,74 @@ title: Design
     <figcaption>Review profile dark</figcaption>
     </figure>
 
+### Following
+=== "Light"
+    <figure markdown="span">
+    ![Following light](assets/img/components/following/following-light.svg){ loading=lazy }
+    <figcaption>Following light</figcaption>
+    </figure>
+
+=== "Dark"
+    <figure markdown="span">
+    ![Following dark](assets/img/components/following/following-dark.svg){ loading=lazy }
+    <figcaption>Following dark</figcaption>
+    </figure>
+
+<br>
+
+=== "Light"
+    <figure markdown="span">
+    ![Follow light](assets/img/components/following/follow-light.svg){ loading=lazy }
+    <figcaption>Follow light</figcaption>
+    </figure>
+
+=== "Dark"
+    <figure markdown="span">
+    ![Follow dark](assets/img/components/following/follow-dark.svg){ loading=lazy }
+    <figcaption>Follow dark</figcaption>
+    </figure>
+
+### Actions
+=== "Light"
+    <figure markdown="span">
+    ![More Info light](assets/img/components/actions/action-moreinfo-light.svg){ loading=lazy }
+    <figcaption>More Info light</figcaption>
+    </figure>
+
+=== "Dark"
+    <figure markdown="span">
+    ![More Info dark](assets/img/components/actions/action-moreinfo-dark.svg){ loading=lazy }
+    <figcaption>More Info dark</figcaption>
+    </figure>
+
+<br>
+
+=== "Light"
+    <figure markdown="span">
+    ![Not seen light](assets/img/components/actions/action-notseen-light.svg){ loading=lazy }
+    <figcaption>More Info light</figcaption>
+    </figure>
+
+=== "Dark"
+    <figure markdown="span">
+    ![Not seen dark](assets/img/components/actions/action-notseen-dark.svg){ loading=lazy }
+    <figcaption>Not seen dark</figcaption>
+    </figure>
+
+<br>
+
+=== "Light"
+    <figure markdown="span">
+    ![Add to List light](assets/img/components/actions/action-addtolist-light.svg){ loading=lazy }
+    <figcaption>Add to List light</figcaption>
+    </figure>
+
+=== "Dark"
+    <figure markdown="span">
+    ![Add to List dark](assets/img/components/actions/action-addtolist-dark.svg){ loading=lazy }
+    <figcaption>Add to List dark</figcaption>
+    </figure>
+
 ### Movie
 #### Movie cover
 <figure markdown="span">
@@ -238,6 +306,38 @@ title: Design
 <figcaption>Movie List</figcaption>
 </figure>
 
+#### Add Movie List
+<figure markdown="span">
+![Add Movie List](assets/img/components/add-button/add-movielist.svg){ loading=lazy }
+<figcaption>Add Movie List</figcaption>
+</figure>
+
+=== "Light"
+    <figure markdown="span">
+    ![Blank Movie List light](assets/img/components/add-button/blank-list-light.svg){ loading=lazy }
+    <figcaption>Blank Movie List light</figcaption>
+    </figure>
+
+=== "Dark"
+    <figure markdown="span">
+    ![Blank Movie List dark](assets/img/components/add-button/blank-list-dark.svg){ loading=lazy }
+    <figcaption>Blank Movie List dark</figcaption>
+    </figure>
+
+<br>
+
+=== "Light"
+    <figure markdown="span">
+    ![Smart Movie List light](assets/img/components/add-button/smart-list-light.svg){ loading=lazy }
+    <figcaption>Smart Movie List light</figcaption>
+    </figure>
+
+=== "Dark"
+    <figure markdown="span">
+    ![Smart Movie List dark](assets/img/components/add-button/smart-list-dark.svg){ loading=lazy }
+    <figcaption>Smart Movie List dark</figcaption>
+    </figure>
+
 #### Movie List Checkbox
 === "Light"
     <figure markdown="span">
@@ -249,6 +349,60 @@ title: Design
     <figure markdown="span">
     ![Movie List Checkbox dark](assets/img/components/movielist-checkbox-dark.svg){ loading=lazy }
     <figcaption>Movie List Checkbox dark</figcaption>
+    </figure>
+
+### Modals
+#### Pop up
+=== "Light"
+    <figure markdown="span">
+    ![Pop up light](assets/img/components/modals/popup-light.svg){ loading=lazy }
+    <figcaption>Pop up light</figcaption>
+    </figure>
+
+=== "Dark"
+    <figure markdown="span">
+    ![Pop up dark](assets/img/components/modals/popup-dark.svg){ loading=lazy }
+    <figcaption>Pop up dark</figcaption>
+    </figure>
+
+#### Create Movie List
+=== "Light"
+    <figure markdown="span">
+    ![Blank List light](assets/img/components/modals/blanklist-create-light.svg){ loading=lazy }
+    <figcaption>Blank List light</figcaption>
+    </figure>
+
+=== "Dark"
+    <figure markdown="span">
+    ![Blank List dark](assets/img/components/modals/blanklist-create-dark.svg){ loading=lazy }
+    <figcaption>Blank List dark</figcaption>
+    </figure>
+
+<br>
+
+=== "Light"
+    <figure markdown="span">
+    ![Smart List light](assets/img/components/modals/smartlist-create-light.svg){ loading=lazy }
+    <figcaption>Smart List light</figcaption>
+    </figure>
+
+=== "Dark"
+    <figure markdown="span">
+    ![Smart List dark](assets/img/components/modals/smartlist-create-dark.svg){ loading=lazy }
+    <figcaption>Smart List dark</figcaption>
+    </figure>
+
+#### Add to Movie List
+=== "Light"
+    <figure markdown="span">
+    ![Add to Movie List light](assets/img/components/modals/movielist-add-light.svg){ loading=lazy }
+    <figcaption>Add to Movie List light</figcaption>
+    </figure>
+
+=== "Dark"
+    <figure markdown="span">
+    ![Add to Movie List dark](assets/img/components/modals/movielist-add-dark.svg){ loading=lazy }
+    <figcaption>Add to Movie List dark</figcaption>
     </figure>
 
 ## Pages
