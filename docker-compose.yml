@@ -32,7 +32,7 @@ services:
     volumes:
       - static_data:/app/staticfiles
       - media_data:/app/media
-      
+
   web:
     image: moviesxmovies/frontend:latest
     container_name: movies_frontend
@@ -40,6 +40,27 @@ services:
     pull_policy: always
     volumes:
       - frontend_data:/app
+
+  redis:
+    image: redis:7-alpine
+    container_name: movies_redis
+    restart: always
+
+  worker:
+    image: moviesxmovies/backend:latest
+    restart: always
+    pull_policy: always
+    command: python manage.py rqworker default
+    env_file:
+      - .env
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_started
+    volumes:
+      - static_data:/app/staticfiles
+      - media_data:/app/media
 
 volumes:
   postgres_data:
