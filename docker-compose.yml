@@ -45,6 +45,11 @@ services:
     image: redis:7-alpine
     container_name: movies_redis
     restart: always
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
 
   worker:
     image: moviesxmovies/backend:latest
@@ -57,7 +62,7 @@ services:
       db:
         condition: service_healthy
       redis:
-        condition: service_started
+        condition: service_healthy
     volumes:
       - static_data:/app/staticfiles
       - media_data:/app/media
