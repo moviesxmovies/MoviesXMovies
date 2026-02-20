@@ -145,7 +145,31 @@ services:
     volumes: # (12)!
       - static_data:/app/staticfiles
       - media_data:/app/media
-      
+  redis: # (21)!
+    image: redis:7-alpine # (22)!
+    container_name: movies_redis
+    restart: always
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"] # (23)!
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  worker: # (24)!
+    image: moviesxmovies/backend:latest # (25)!
+    restart: always
+    pull_policy: always
+    command: python manage.py rqworker default # (26)!
+    env_file:
+      - .env
+    depends_on: # (27)!
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    volumes: # (28)!
+      - static_data:/app/staticfiles
+      - media_data:/app/media
   web: # (13)!
     image: moviesxmovies/frontend:latest
     container_name: movies_frontend
@@ -197,6 +221,14 @@ volumes:
 18. **Creates** a **volume** for **static files**, and **mount it** on a **directory** of the **machine**
 19. **Creates** a **volume** for **media files**, and **mount it** on a **directory** of the **machine**
 20. **Creates** a **volume** for **frontend files**, and **mount it** on a **directory** of the **machine**
+21. **Creates** a **container** using an alpine **redis image**
+22. **Official** alpine **redis image**
+23. **Creates** a **healthcheck** to see if the **container** is **ready**
+24. **Create** a **worker**, which later we can run **more** **container** to be **scalable**
+25. Using the **backend image**, so it can get **latest code**
+26. And **we override** the base **CMD** command and instead we **run** a **rqworker**
+27. Before **creating** the **worker**, we have to **secure** that the **db** and **redis** are **up**
+28. And **setup** the **volumes** to be **able** to **access** **static** and **media data**
 
 ### SonarQube
 ```yaml title="docker-compose.yml"
