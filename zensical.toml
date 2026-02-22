@@ -32,7 +32,6 @@ nav = [
 extra_javascript = ["assets/javascript/mermaid.mjs"]
 extra_css = ["assets/css/extra.css"]
 
-
 [project.theme]
 favicon = "assets/img/favicon.svg"
 language = "es"
@@ -112,5 +111,5 @@ paths = ["src_backend"]
 [project.plugins.mkdocstrings.handlers.python.options]
 docstring_style = "google"
 inherited_members = true
-show_source = false ## Disable for now because of mkdocstrings issue
+show_source = false        ## Disable for now because of mkdocstrings issue
 line_length = 80
