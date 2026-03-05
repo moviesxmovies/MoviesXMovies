@@ -9,6 +9,7 @@ on:
       - 'docs/**'
       - '.github/workflows/docs.yml'
       - 'docker-compose.yml'
+      - 'pyproject.toml'
   repository_dispatch:
     types: [backend_updated]
 permissions:
