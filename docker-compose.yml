@@ -92,11 +92,11 @@ services:
     env_file:
       - .env
     environment:
-    - GF_SECURITY_ADMIN_USER=${GRAFANA_USER:-admin}
-    - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD:-admin}
-    - GF_USERS_ALLOW_SIGN_UP=false
-    - GF_SERVER_ROOT_URL=https://moviesxmovies.jonaykb.com/stats/
-    - GF_SERVER_SERVE_FROM_SUB_PATH=true
+      - GF_SECURITY_ADMIN_USER=${GRAFANA_USER:-admin}
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD:-admin}
+      - GF_USERS_ALLOW_SIGN_UP=false
+      - GF_SERVER_ROOT_URL=https://moviesxmovies.jonaykb.com/stats/
+      - GF_SERVER_SERVE_FROM_SUB_PATH=true
     volumes:
       - grafana_data:/var/lib/grafana
       - ./monitoring/grafana/provisioning:/etc/grafana/provisioning
