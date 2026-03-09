@@ -38,6 +38,8 @@ services:
     container_name: movies_frontend
     restart: always
     pull_policy: always
+    env_file:
+      - .env
     volumes:
       - frontend_data:/app
 
@@ -67,8 +69,44 @@ services:
       - static_data:/app/staticfiles
       - media_data:/app/media
 
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: movies_prometheus
+    restart: always
+    volumes:
+      - ./monitoring/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus_data:/prometheus
+    command:
+      - "--config.file=/etc/prometheus/prometheus.yml"
+      - "--storage.tsdb.path=/prometheus"
+      - "--web.console.libraries=/etc/prometheus/console_libraries"
+      - "--web.console.templates=/etc/prometheus/consoles"
+      - "--storage.tsdb.retention.time=30d"
+    depends_on:
+      - api
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: movies_grafana
+    restart: always
+    env_file:
+      - .env
+    environment:
+      - GF_SECURITY_ADMIN_USER=${GRAFANA_USER:-admin}
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD:-admin}
+      - GF_USERS_ALLOW_SIGN_UP=false
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./monitoring/grafana/provisioning:/etc/grafana/provisioning
+    ports:
+      - "3000:3000"
+    depends_on:
+      - prometheus
+
 volumes:
   postgres_data:
+  prometheus_data:
+  grafana_data:
   static_data:
     driver: local
     driver_opts:
