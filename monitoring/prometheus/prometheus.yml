@@ -7,6 +7,10 @@ scrape_configs:
     static_configs:
       - targets: ["api:7996"]
     metrics_path: /metrics
+    metric_relabel_configs:
+      - source_labels: [handler]
+        regex: "^/metrics$"
+        action: drop
 
   - job_name: "prometheus"
     static_configs:
