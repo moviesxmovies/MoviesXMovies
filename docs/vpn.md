@@ -37,7 +37,7 @@ Create your WireGuard configuration file and paste the following snippet. Make s
 [Interface]
 Address = 10.0.0.3/24  # <- Your assigned VPN IP (provided by the administrator)
 PrivateKey = <CLIENT_PRIVATE_KEY> # <- Your private key
-DNS = 1.1.1.1
+DNS = 10.0.0.1
 
 [Peer]
 PublicKey = <SERVER_PUBLIC_KEY> # <- Server public key
