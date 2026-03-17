@@ -8,7 +8,7 @@ site_author = "Ruben y Jonay"
 
 repo_url = "https://github.com/moviesXmovies/moviesXmovies"
 
-site_url = "https://moviesxmovies.github.io/MoviesXMovies"
+site_url = "https://moviesxmovies.jonaykb.com/docs"
 
 repo_name = "Docs"
 
@@ -25,6 +25,8 @@ nav = [
   { "User Manual" = "user_manual.md", "icon" = "lucide/user" },
   { "Installation" = "installation.md", "icon" = "lucide/hard-drive-download" },
   { "Code Documentation" = "code.md", "icon" = "lucide/code" },
+  { "VPN" = "vpn.md", "icon" = "lucide/globe-lock" },
+  { "Changelog" = "changelog.md", "icon" = "lucide/history" },
 
 
 ]

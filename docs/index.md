@@ -65,10 +65,24 @@ title: MoviesXMovies - Docs
 
       [View Installation](installation.md)
 
+-    :lucide-globe-lock: **VPN**
+
+      ---
+       Learn to link your vpn with us
+
+       [Connect VPN](vpn.md)
+
 -    :lucide-code: **Code Documentation**  
   
      ---
       Show views, models and everything about the coide
 
       [View Code](code.md)
+
+-    :lucide-history: **Changelog**  
+  
+     ---
+      All the changes
+
+      [View Changes](changelog.md)
 </div>

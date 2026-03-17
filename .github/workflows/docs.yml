@@ -1,4 +1,5 @@
 name: Documentation
+
 on:
   push:
     branches:
@@ -11,34 +12,48 @@ on:
       - 'docker-compose.yml'
       - 'pyproject.toml'
   repository_dispatch:
-    types: [backend_updated]
+    types: [backend_updated, frontend_updated] 
+
 permissions:
   contents: read
   pages: write
   id-token: write
+
 jobs:
   deploy:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/configure-pages@v5
-      - uses: actions/checkout@v5
-      - name: Checkout Source Code
+
+      - name: Checkout docs repo
+        uses: actions/checkout@v4
+
+      - name: Checkout Backend Source Code
         uses: actions/checkout@v4
         with:
           repository: moviesxmovies/moviesxmoviesBackend
           path: src_backend
+
       - name: Install uv
         uses: astral-sh/setup-uv@v5
-  
+
       - name: UV synchronize
         run: uv sync
 
+      - name: Generate changelog.md         
+        env:
+          GH_TOKEN: ${{ secrets.PAT_TOKEN }} 
+        run: python .github/scripts/generate_changelog.py
+
       - run: uv run zensical build --clean
+
       - uses: actions/upload-pages-artifact@v4
         with:
           path: site
+
       - uses: actions/deploy-pages@v4
         id: deployment
