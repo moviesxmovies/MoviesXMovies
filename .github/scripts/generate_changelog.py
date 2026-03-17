@@ -9,7 +9,6 @@ REPOS = [
     {'slug': 'moviesxmovies/MoviesXMoviesFrontend', 'label': 'Frontend', 'icon': '🖥️'},
 ]
 
-# Mirrors your .github/release.yml categories
 CATEGORIES = [
     {'title': '🚀 Features', 'prefixes': ['feat', 'feature']},
     {'title': '🐛 Fixes', 'prefixes': ['fix', 'bug']},
@@ -19,6 +18,13 @@ CATEGORIES = [
 IGNORE_PREFIXES = ['ignore']
 
 OUT = 'docs/changelog.md'
+
+ADMONTIONS_TYPES = {
+    '🚀 Features': ('tip', '🚀 Features'),
+    '🐛 Fixes': ('bug', '🐛 Fixes'),
+    '🧪 Tests': ('example', '🧪 Tests'),
+    '🧰 Maintenance': ('note', '🧰 Maintenance'),
+}
 
 
 def gh_get(url: str):
@@ -42,42 +48,27 @@ def parse_date(iso: str) -> datetime:
 
 
 def parse_release_body(body: str) -> dict:
-    """
-    Parse a GitHub auto-generated release body into categorized sections.
-    GitHub renders them as:
-        ## 🚀 Features
-        * feat: something by @user in #123
-        ## 🐛 Fixes
-        * fix: something by @user in #456
-        ## New Contributors
-        ...
-        **Full Changelog**: ...
-    Returns a dict like:
-        {
-            "🚀 Features":    ["* feat: something by @user in #123", ...],
-            "🐛 Fixes":       [...],
-            "full_changelog": "https://...",
-            "new_contributors": ["* @user made their first contribution in #7", ...],
-        }
-    """
     if not body:
         return {}
 
     result = {}
     current = None
-    full_changelog = None
     new_contributors = []
+    full_changelog = None
 
     for raw_line in body.replace('\r\n', '\n').split('\n'):
         line = raw_line.strip()
 
-        if line.startswith('## '):
-            current = line[3:].strip()
+        if line.startswith('## ') or line.startswith('### '):  # ← fix: also match ###
+            section = line.lstrip('#').strip()
+            # Skip the generic "What's Changed" wrapper
+            if section == "What's Changed":
+                continue
+            current = section
             if current not in result:
                 result[current] = []
 
         elif line.lower().startswith('**full changelog**'):
-            # e.g. **Full Changelog**: https://github.com/.../compare/v1.0.0...v1.1.0
             parts = line.split(':', 1)
             if len(parts) == 2:
                 full_changelog = parts[1].strip()
@@ -94,16 +85,12 @@ def parse_release_body(body: str) -> dict:
 
 
 def should_ignore(entry_line: str) -> bool:
-    """Skip lines whose PR title starts with an ignored prefix."""
     text = entry_line.lstrip('* ').lower()
     return any(text.startswith(p) for p in IGNORE_PREFIXES)
 
 
-def format_release(entry: dict) -> str:
-    rel = entry['release']
-    label = entry['label']
-    icon = entry['icon']
-    slug = entry['slug']
+def format_release(rel_entry: dict) -> str:
+    rel = rel_entry['release']
     date = parse_date(rel['published_at']).strftime('%B %d, %Y')
     tag = rel['tag_name']
     name = rel.get('name') or tag
@@ -111,77 +98,113 @@ def format_release(entry: dict) -> str:
     pre = ' _(pre-release)_' if rel.get('prerelease') else ''
 
     lines = []
-    lines.append(f'## {icon} [{label}] {name}{pre}\n')
-    lines.append(
-        f'**Repo:** `{slug}` &nbsp;·&nbsp; '
-        f'**Tag:** `{tag}` &nbsp;·&nbsp; '
-        f'**Released:** {date} &nbsp;·&nbsp; '
-        f'[View on GitHub]({url})\n'
-    )
+
+    # Release title as admonition instead of ### header — no ToC entry generated
+    lines.append(f'??? info "{name}{pre} &nbsp;·&nbsp; `{tag}` &nbsp;·&nbsp; {date}"')
+    lines.append(f'    [View on GitHub]({url})\n')
 
     parsed = parse_release_body(rel.get('body', ''))
 
     if parsed:
-        # Render known categories in order, using titles from CATEGORIES
-        # but matching against what GitHub actually put in the release body
         rendered_any = False
+
         for cat in CATEGORIES:
-            # Find the matching section in the parsed body by title
             section_lines = parsed.get(cat['title'], [])
             visible = [l for l in section_lines if not should_ignore(l)]
             if visible:
-                lines.append(f'\n### {cat["title"]}\n')
+                admonition_types = {
+                    '🚀 Features':    ('tip',     '🚀 Features'),
+                    '🐛 Fixes':       ('bug',     '🐛 Fixes'),
+                    '🧪 Tests':       ('example', '🧪 Tests'),
+                    '🧰 Maintenance': ('note',    '🧰 Maintenance'),
+                }
+                adm_type, adm_title = admonition_types.get(cat['title'], ('note', cat['title']))
+                lines.append(f'    !!! {adm_type} "{adm_title}"')
                 for item in visible:
-                    lines.append(f'{item}\n')
+                    lines.append(f'        {item}')
+                lines.append('')
                 rendered_any = True
 
-        # Render any sections from the release body NOT in our known categories
-        # (future-proofing — e.g. if GitHub adds a new group)
-        known_titles = {c['title'] for c in CATEGORIES} | {'New Contributors'}
+        known_titles = {c['title'] for c in CATEGORIES} | {'New Contributors', "What's Changed"}
         for section_title, section_lines in parsed.items():
             if section_title.startswith('_'):
                 continue
             if section_title not in known_titles:
                 visible = [l for l in section_lines if not should_ignore(l)]
                 if visible:
-                    lines.append(f'\n### {section_title}\n')
+                    lines.append(f'    !!! note "{section_title}"')
                     for item in visible:
-                        lines.append(f'{item}\n')
+                        lines.append(f'        {item}')
+                    lines.append('')
                     rendered_any = True
 
         if not rendered_any:
-            lines.append('\n_No categorized changes found._\n')
+            lines.append('    !!! abstract "No Changes"\n        _No categorized changes found._\n')
 
-        # New contributors
         if parsed.get('_new_contributors'):
-            lines.append('\n### 👋 New Contributors\n')
+            lines.append('    !!! success "👋 New Contributors"')
             for c in parsed['_new_contributors']:
-                lines.append(f'{c}\n')
+                lines.append(f'        {c}')
+            lines.append('')
 
-        # Full changelog compare link
         if parsed.get('_full_changelog'):
-            lines.append(f'\n**Full Changelog:** {parsed["_full_changelog"]}\n')
+            lines.append(f'    !!! quote "↔️ Full Changelog"\n        {parsed["_full_changelog"]}\n')
 
     else:
-        lines.append('\n_No release notes provided._\n')
+        lines.append('    !!! abstract "No Changes"\n        _No release notes provided._\n')
 
-    lines.append('\n---\n')
+    lines.append('')
     return '\n'.join(lines)
 
 
-def build_markdown(all_releases: list) -> str:
+
+def build_repo_tab(repo: dict, releases: list) -> str:
+    """Renders all releases for one repo as a MkDocs tab block."""
+    lines = []
+    lines.append(f'=== "{repo["icon"]} {repo["label"]}"')
+
+    if not releases:
+        lines.append('\n    _No releases yet._\n')
+        return '\n'.join(lines)
+
+    for entry in releases:
+        block = format_release(entry)
+        # Indent every line 4 spaces — required by MkDocs content.tabs
+        for line in block.split('\n'):
+            lines.append(f'    {line}' if line.strip() else '')
+
+    return '\n'.join(lines)
+
+
+def build_markdown(releases_by_repo: dict) -> str:
     now = datetime.utcnow().strftime('%Y-%m-%d %H:%M UTC')
-    header = [
+
+    lines = [
+        '---',
+        'title: Changelog',
+        'icon: lucide/history',
+        'hide:',
+        '  - toc',
+        '  - navigation',
+        '---',
+        '',
         '# Changelog\n',
-        'All releases across **Main**, **Backend** and **Frontend** repositories, newest first.\n',
+        'All releases across **Main**, **Backend** and **Frontend** repositories.\n',
         f'> Last updated: {now}\n',
-        '---\n',
+        '',
     ]
-    return '\n'.join(header) + '\n' + '\n'.join(format_release(e) for e in all_releases)
+
+    for repo in REPOS:
+        slug = repo['slug']
+        releases = releases_by_repo.get(slug, [])
+        lines.append(build_repo_tab(repo, releases))
+        lines.append('')
+
+    return '\n'.join(lines)
 
 
 def main():
-    all_releases = []
+    releases_by_repo: dict[str, list] = {}
 
     for repo in REPOS:
         print(f'Fetching {repo["slug"]} …')
@@ -189,12 +212,14 @@ def main():
             releases = fetch_releases(repo['slug'])
         except Exception as exc:
             print(f'  ⚠️  Failed: {exc}')
+            releases_by_repo[repo['slug']] = []
             continue
 
+        entries = []
         for rel in releases:
             if rel.get('draft'):
                 continue
-            all_releases.append(
+            entries.append(
                 {
                     'release': rel,
                     'label': repo['label'],
@@ -204,13 +229,16 @@ def main():
                 }
             )
 
-    all_releases.sort(key=lambda x: x['date'], reverse=True)
+        # Newest first dentro de cada repo
+        entries.sort(key=lambda x: x['date'], reverse=True)
+        releases_by_repo[repo['slug']] = entries
 
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     with open(OUT, 'w', encoding='utf-8') as f:
-        f.write(build_markdown(all_releases))
+        f.write(build_markdown(releases_by_repo))
 
-    print(f'✅  {len(all_releases)} releases written to {OUT}')
+    total = sum(len(v) for v in releases_by_repo.values())
+    print(f'✅  {total} releases written to {OUT}')
 
 
 if __name__ == '__main__':
