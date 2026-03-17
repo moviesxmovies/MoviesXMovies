@@ -47,7 +47,7 @@ AllowedIPs = 10.0.0.0/24
 
 ### 4. Request Access
 
-Next, you must contact [supply@moviesxmovies.jonaykb.com](mailto:supply@moviesxmovies.jonaykb.com) to get your public key whitelisted. Please include the following information in your email:
+Next, you must contact [supply@moviesxmovies.jonaykb.com](mailto:support@moviesxmovies.jonaykb.com) to get your public key whitelisted. Please include the following information in your email:
 
 !!! warning "Required Information via Email"
 **Subject:** `<FULL_NAME> - VPN ACCESS`
