@@ -1,6 +1,6 @@
 # MoviesXMovies
 
-<a href="https://moviesxmovies.github.io/MoviesXMovies/" align="center">
+<a href="https://moviesxmovies.jonaykb.com/docs" align="center">
     <img src="docs/assets/img/og-image.webp">
 </a>
 
