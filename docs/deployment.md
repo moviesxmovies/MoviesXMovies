@@ -277,24 +277,89 @@ volumes:
 ```
 ## Nginx Server
 ```nginx title="moviesxmovies.conf"
-# Redirections and HTTP Security
+# Redirección y Seguridad HTTP
 server {
     listen 80;
     server_name moviesxmovies.jonaykb.com;
     if ($host !~* ^moviesxmovies\.jonaykb\.com$ ) { return 444; }
     return 301 https://$host$request_uri;
 }
-# Main Server
+
+# Servidor VPN — solo accesible desde 10.0.0.1 (WireGuard)
+server {
+    listen 10.0.0.1:443 ssl http2;
+    server_name moviesxmovies.jonaykb.com;
+    ssl_certificate /etc/letsencrypt/live/moviesxmovies.jonaykb.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/moviesxmovies.jonaykb.com/privkey.pem;
+    ssl_session_timeout 1d;
+    ssl_protocols TLSv1.2 TLSv1.3;
+    location /api/ {
+        proxy_pass http://127.0.0.1:7996/api/;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+    }
+
+    location /docs {
+            proxy_pass https://moviesxmovies.github.io/MoviesXMovies;
+    }
+
+    # Grafana en la raíz para usuarios VPN
+    location / {
+        proxy_pass http://127.0.0.1:3000/;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+        proxy_redirect off;
+    }
+
+    location /admin/ {
+        proxy_pass http://127.0.0.1:7996/admin/;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+
+    location /django-rq/ {
+        proxy_pass http://127.0.0.1:7996/django-rq/;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+
+    location /static/ {
+        alias /var/www/moviesxmovies/static/;
+        expires 30d;
+        add_header Cache-Control "public";
+        try_files $uri =404;
+    }
+}
+
+# Servidor Principal — acceso público
 server {
     listen 443 ssl http2;
     server_name moviesxmovies.jonaykb.com;
-
     ssl_certificate /etc/letsencrypt/live/moviesxmovies.jonaykb.com/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/moviesxmovies.jonaykb.com/privkey.pem;
-
-
     ssl_session_timeout 1d;
     ssl_protocols TLSv1.2 TLSv1.3;
+
+    location /api/docs/ {
+	deny all;
+    }
+    location /api/schema/ {
+	    deny all;
+    }
 
     location /api/ {
         proxy_pass http://127.0.0.1:7996/api/;
@@ -305,46 +370,31 @@ server {
         proxy_set_header X-Forwarded-Proto $scheme;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection "upgrade";
-        }
+    }
 
-# Location for django adin
     location /admin/ {
-            proxy_pass http://127.0.0.1:7996/admin/;
-            proxy_set_header Host $host;
-            proxy_set_header X-Real-IP $remote_addr;
-            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-            proxy_set_header X-Forwarded-Proto $scheme;
+        deny all;
     }
 
-# Location for django statics files
-    location /static/ {
-            alias /var/www/moviesxmovies/static/;
-            expires 30d;
-            add_header Cache-Control "public";
-            # Si no existe el archivo, devuelve 404, NO vayas al index.html
-            try_files $uri =404;
+    location /django-rq/ {
+        deny all;
     }
 
-# Location for django media files
     location /media/ {
-            alias /var/www/moviesxmovies/media/;
-            try_files $uri =404;
+        alias /var/www/moviesxmovies/media/;
+        try_files $uri =404;
     }
 
-# Redirection to MoviesXMovies docs in GitHub Pages
     location /docs {
             proxy_pass https://moviesxmovies.github.io/MoviesXMovies;
     }
-
-# Serve frontend files
     location / {
-            root /var/www/moviesxmovies/app;
-            index index.html;
-            try_files $uri $uri/ /index.html;
-
+        root /var/www/moviesxmovies/app;
+        index index.html;
+        try_files $uri $uri/ /index.html;
     }
-
 }
+
 ```
 
 ## Domain
