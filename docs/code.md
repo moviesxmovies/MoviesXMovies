@@ -207,10 +207,6 @@ Core user management, authentication, and profile data.
       heading_level: 4
       show_root_heading: true
 
-::: users.views.FollowResponse
-    options:
-      heading_level: 4
-      show_root_heading: true
 
 ::: users.views.SignupUserSerializer
     options:
