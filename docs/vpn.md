@@ -50,13 +50,13 @@ AllowedIPs = 10.0.0.0/24
 Next, you must contact [support@moviesxmovies.jonaykb.com](mailto:support@moviesxmovies.jonaykb.com) to get your public key whitelisted. Please include the following information in your email:
 
 !!! warning "Required Information via Email"
-**Subject:** `<FULL_NAME> - VPN ACCESS`
-
-**Description:**
-```
-`<CLIENT_PUBLIC_KEY>`
-`<GITHUB_USERNAME>`
-```
+    **Subject:** `<FULL_NAME> - VPN ACCESS`
+    
+    **Description:**
+    ```
+    `<CLIENT_PUBLIC_KEY>`
+    `<GITHUB_USERNAME>`
+    ```
 
 ### 5. Connect and Verify
 
