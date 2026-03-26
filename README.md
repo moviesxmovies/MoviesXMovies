@@ -12,5 +12,5 @@
 - ## [FrontEnd](https://github.com/moviesxmovies/MoviesXMoviesFrontend)
     - [![Quality gate](https://sonarqube.jonaykb.com/api/project_badges/quality_gate?project=MoviesXMovies-Frontend&token=sqb_e9735317e4b51306c16c8b696d711694927a601d)](https://sonarqube.jonaykb.com/dashboard?id=MoviesXMovies-Frontend)
     - [![Coverage](https://sonarqube.jonaykb.com/api/project_badges/measure?project=MoviesXMovies-Frontend&metric=coverage&token=sqb_e9735317e4b51306c16c8b696d711694927a601d)](https://sonarqube.jonaykb.com/dashboard?id=MoviesXMovies-Frontend)
-    - [![Lines of Code](https://sonarqube.jonaykb.com/api/project_badges/measure?project=MoviesXMovies-Frontend&metric=ncloc&token=sqb_e9735317e4b51306c16c8b696d711694927a601d)](https://sonarqube.jonaykb.com/dashboard?id=MoviesXMovMoviesXMovies-FrontendiesFrontend)
+    - [![Lines of Code](https://sonarqube.jonaykb.com/api/project_badges/measure?project=MoviesXMovies-Frontend&metric=ncloc&token=sqb_e9735317e4b51306c16c8b696d711694927a601d)](https://sonarqube.jonaykb.com/dashboard?id=MoviesXMovies-Frontend)
     - [![Security Rating](https://sonarqube.jonaykb.com/api/project_badges/measure?project=MoviesXMovies-Frontend&metric=software_quality_security_rating&token=sqb_e9735317e4b51306c16c8b696d711694927a601d)](https://sonarqube.jonaykb.com/dashboard?id=MoviesXMovies-Frontend)
