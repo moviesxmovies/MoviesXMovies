@@ -17,6 +17,9 @@ title: MoviesXMovies - Docs
 <span style="display:block; margin-top:0.4rem; color: var(--md-default-fg-color--light); font-size: 0.9em;">
 </span>
 
+**A social movie tracking platform — discover films, write reviews, build watchlists, and connect with other cinephiles.**
+
+
 </div>
 
 
@@ -78,6 +81,13 @@ title: MoviesXMovies - Docs
       Show views, models and everything about the coide
 
       [View Code](code.md)
+
+-    :lucide-megaphone: **Marketing & Sustainability**
+  
+     ---
+      Learn all about marketing and sustainability for MoviesXMovies
+
+      [View Plan](business_plan.md)
 
 -    :lucide-history: **Changelog**  
   

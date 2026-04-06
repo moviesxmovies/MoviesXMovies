@@ -26,8 +26,9 @@ nav = [
   { "Installation" = "installation.md", "icon" = "lucide/hard-drive-download" },
   { "Code Documentation" = "code.md", "icon" = "lucide/code" },
   { "VPN" = "vpn.md", "icon" = "lucide/globe-lock" },
-  { "Changelog" = "changelog.md", "icon" = "lucide/history" },
+  { "Marketing & Sustainability" = "business_plan.md", "icon" = "lucide/megaphone" },
 
+  { "Changelog" = "changelog.md", "icon" = "lucide/history" },
 
 ]
 
