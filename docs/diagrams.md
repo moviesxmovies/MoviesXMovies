@@ -18,15 +18,20 @@ erDiagram
     USER }o--|| MOVIELIST: creates
     USER }o--o{ PERSON: follows
     USER }o--o{ PLATFORM: has
+    USER ||--o{ FRIENDSHIP: has
+    USER ||--o{ FRIENDREQUEST: sends
+    USER ||--o{ FRIENDREQUEST: receives
     PERSON }o--|| MOVIE: directs
     PERSON }o--o{ MOVIE: acts
     MOVIE }|--o{ GENRE: has
     MOVIE }o--o{ PLATFORM: available_at
+    MOVIE ||--o{ MOVIETRANSLATION: has
     AWARD ||--o{ MOVIE: awards
     AWARD ||--o{ PERSON: awards
     MOVIELIST }o--o{ MOVIE: has
     RATING ||--o{ MOVIE: rates
     REVIEW ||--o{ MOVIE: reviews
+    GENRE ||--o{ GENRETRANSLATION: has
 ```
 </div>
 
@@ -46,44 +51,58 @@ erDiagram
     USER }o--|| MOVIELIST: creates
     USER }o--o{ PERSON: follows
     USER }o--o{ PLATFORM: has
+    USER ||--o{ FRIENDSHIP: has
+    USER ||--o{ FRIENDREQUEST: sends
+    USER ||--o{ FRIENDREQUEST: receives
     PERSON }o--|| MOVIE: directs
     PERSON }o--o{ MOVIE: acts
     MOVIE }|--o{ GENRE: has
     MOVIE }o--o{ PLATFORM: available_at
+    MOVIE ||--o{ MOVIETRANSLATION: has
     AWARD ||--o{ MOVIE: awards
     AWARD ||--o{ PERSON: awards
     MOVIELIST }o--o{ MOVIE: has
     RATING ||--o{ MOVIE: rates
     REVIEW ||--o{ MOVIE: reviews
-
+    GENRE ||--o{ GENRETRANSLATION: has
     MOVIE {
-        String name
+        String title
         String slug
-        Date Date
+        Date release_date
         String synopsis
         Image cover
         M2M directors
         M2M actors
-        M2M movies
-        M2M movies
+        M2M genres
+        M2M platforms
+    }
+    MOVIETRANSLATION {
+        String language
+        String title
+        String synopsis
+        Image image
+        Integer movie FK
     }
     GENRE {
         String name
+        String slug
+    }
+    GENRETRANSLATION {
+        String language
+        String name
+        Integer genre FK
     }
     PERSON {
         String name
         String slug
-        String country
         Image image
     }
     AWARD {
-        Date Date
+        Date date
         String name
         String slug
-        ENUM title
+        ENUM category
         Image icon
-        Integer person FK
-        Integer movie FK
     }
     RATING {
         Integer rating
@@ -91,30 +110,44 @@ erDiagram
         Integer user FK
     }
     USER {
-        Image image
+        Image picture
         String bio
-        M2M followingActors
-        M2M followingDirectors
-        M2M followers
-        M2M following
+        String preferred_language
+        M2M following_person
         M2M platforms
+        M2M unseen_movies
     }
     MOVIELIST {
         String name
+        String slug
         Enum privacity
+        String description
         M2M movies
-        Integer User FK
+        Integer user FK
     }
     REVIEW {
+        String title
         String content
-        Date date
-        Boolean isPositive
-        Integer User FK
+        Boolean is_positive
+        Integer user FK
         Integer movie FK
     }
     PLATFORM {
         String url
         String name
+        String slug
+        Image image
+    }
+    FRIENDSHIP {
+        Integer user1 FK
+        Integer user2 FK
+        Date created_at
+    }
+    FRIENDREQUEST {
+        Integer from_user FK
+        Integer to_user FK
+        ENUM status
+        Date created_at
     }
 ```
 </div>
