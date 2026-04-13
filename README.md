@@ -43,9 +43,6 @@ MoviesXMovies is split into two repositories:
 [![Lines of Code](https://sonarqube.jonaykb.com/api/project_badges/measure?project=MoviesXMovies-Frontend&metric=ncloc&token=sqb_e9735317e4b51306c16c8b696d711694927a601d)](https://sonarqube.jonaykb.com/dashboard?id=MoviesXMovies-Frontend)
 [![Security Rating](https://sonarqube.jonaykb.com/api/project_badges/measure?project=MoviesXMovies-Frontend&metric=software_quality_security_rating&token=sqb_e9735317e4b51306c16c8b696d711694927a601d)](https://sonarqube.jonaykb.com/dashboard?id=MoviesXMovies-Frontend)
 
-
-Here's the full plan in Markdown:
-
 ---
 
 # 🎬 MoviesXMovies
