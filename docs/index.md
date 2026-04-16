@@ -39,14 +39,6 @@ title: MoviesXMovies - Docs
 
 <div class="grid cards" markdown>
 
--    :lucide-user: **User Manual**  
-  
-     ---
-
-      Learn how to use Movies X Movies
-
-      [View User Manual](user_manual.md)
-
 -    :lucide-user: **Diagrams**  
   
      ---
