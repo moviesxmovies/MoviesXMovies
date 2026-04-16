@@ -32,6 +32,7 @@ erDiagram
     RATING ||--o{ MOVIE: rates
     REVIEW ||--o{ MOVIE: reviews
     GENRE ||--o{ GENRETRANSLATION: has
+    PERSON  ||--o{ PERSONTRANSLATION: has
 ```
 </div>
 
@@ -65,6 +66,7 @@ erDiagram
     RATING ||--o{ MOVIE: rates
     REVIEW ||--o{ MOVIE: reviews
     GENRE ||--o{ GENRETRANSLATION: has
+    PERSON ||--o{ PERSONTRANSLATION: has
     MOVIE {
         String title
         String slug
@@ -96,6 +98,11 @@ erDiagram
         String name
         String slug
         Image image
+    }
+    PERSONTRANSLATION{
+        String language
+        String biograpy
+        String person_slug
     }
     AWARD {
         Date date
