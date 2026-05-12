@@ -21,6 +21,7 @@ erDiagram
     USER ||--o{ FRIENDSHIP: has
     USER ||--o{ FRIENDREQUEST: sends
     USER ||--o{ FRIENDREQUEST: receives
+    USER ||--o{ COMMENT: writes
     PERSON }o--|| MOVIE: directs
     PERSON }o--o{ MOVIE: acts
     MOVIE }|--o{ GENRE: has
@@ -32,7 +33,11 @@ erDiagram
     RATING ||--o{ MOVIE: rates
     REVIEW ||--o{ MOVIE: reviews
     GENRE ||--o{ GENRETRANSLATION: has
-    PERSON  ||--o{ PERSONTRANSLATION: has
+    PERSON ||--o{ PERSONTRANSLATION: has
+    REVIEW ||--o{ COMMENT: has
+    COMMENT }o--o| COMMENT: replies_to
+    REVIEW ||--o{ REACTION: has
+    COMMENT ||--o{ REACTION: has    
 ```
 </div>
 
@@ -55,6 +60,7 @@ erDiagram
     USER ||--o{ FRIENDSHIP: has
     USER ||--o{ FRIENDREQUEST: sends
     USER ||--o{ FRIENDREQUEST: receives
+    USER ||--o{ COMMENT: writes
     PERSON }o--|| MOVIE: directs
     PERSON }o--o{ MOVIE: acts
     MOVIE }|--o{ GENRE: has
@@ -67,6 +73,10 @@ erDiagram
     REVIEW ||--o{ MOVIE: reviews
     GENRE ||--o{ GENRETRANSLATION: has
     PERSON ||--o{ PERSONTRANSLATION: has
+    REVIEW ||--o{ COMMENT: has
+    COMMENT }o--o| COMMENT: replies_to
+    REVIEW ||--o{ REACTION: has
+    COMMENT ||--o{ REACTION: has
     MOVIE {
         String title
         String slug
@@ -155,6 +165,19 @@ erDiagram
         Integer to_user FK
         ENUM status
         Date created_at
+    }
+    COMMENT {
+        Integer user FK
+        Integer review FK
+        String content
+        Integer reply_comment FK
+    }
+    REACTION {
+        Integer user FK
+        ENUM emoji
+        String content_type FK
+        Integer object_id FK
+
     }
 ```
 </div>
